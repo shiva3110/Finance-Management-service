@@ -1,0 +1,175 @@
+springboot- backend framework(its a tool that contains predefined helpfull function)
+it makes development faster, easier.
+
+it is used to create micro-services(a small unit of application).
+
+facebook
+
+login screen - username, password -login()
+home page-(posts)--post()-error
+chat- chatting()
+profile-profile()
+
+facebook-project  deploying in online.
+all th method are available in single project. (monolithic)
+pros:
+easy to code 
+easy to maintain
+
+cons:
+if one method throw an error then total app will crash.-->old trend
+
+facebook total down.
+
+Micro-services:
+facebook-project:
+
+login-project-->login()
+
+home-page-project-->homepage()(micro-services)--error crashed
+
+chat-project-->chatting()
+
+profile-project-->profile()
+pros:
+if one micro-service fails still other other srvices might be up and running.
+
+facebook total down X but home page alone crashed
+
+Tomcat-web server--default port-8080
+protocal--http
+host-->localhost
+port-->8080
+login
+
+queryparameter:
+http://localhost:8080/login?username=testUsername123&password=samplepassword
+
+http://localhost:8080/HomePage?username=testUsername123 -- rest call 
+
+micro-services --> api (application progamming interface)
+r
+
+
+{
+
+1:{ postNumber:1,
+    postCaption:"sampleCaption",
+    postcomments:"sampleComments"	
+
+},
+2:{ postNumber:2,
+    postCaption:"sampleCaption",
+    postcomments:"sampleComments"	
+
+}.....
+
+}
+
+old ways->project creation
+each folder is created and configured manually
+
+new -->predefined folder structure and configuration is already available
+
+
+}
+
+JAVA--source code-->Byte code (compilation).class
+
+byte-code-->machine code(interpretation...)
+
+jar-->java archieves
+war --> web archieves
+
+bytecode -->collect-->compress--> code.jar or code.war
+
+jdk-->java.exe-->jar
+
+webserver-->tomcat-->war
+
+POM stands for Project Object Model-->where you list dependencies(pom.xml)
+
+0.0.1
+1st 0 -->major change
+2nd 0 --> functionality change
+3rd 0 -->minor changes
+
+1.1.2
+
+software requirements:
+JDK-17
+Apache Maven
+IntelliJ
+MySQL
+
+Eclipse--jdk
+
+Eclipse+EmbeddedJDK
+
+maven
+
+http method-GET,POST<DELETE,PUT.....
+http status code--> 200 OK, 201...400,403...
+
+Annotation:
+
+@SpringBootApplication-->@EnableAutoConfiguration, @ComponentScan, @Configuration
+
+@ComponentScan --> scan the base packages
+
+@EnableAutoConfiguration->creates and maintain objects which are annotated by @Component
+
+@RestController-->indicate java that this class is rest controller
+
+@RequestMapping-->to design your url to have your customised name
+
+@Getmapping->to handle get request
+@requestParam--> it will take the value from query param in order wise
+Required=false --> param become optional
+
+
+@PostMapping ==> to undle post request
+@RequestBody (requestModel)
+
+Response-->ResponseModel
+
+ResponseEntity<@RequestMapping>-->response body, status code, message
+
+@PathVariable
+
+http://localhost:8080/login/mani --> uri param
+
+
+@RequestParam:
+http://localhost:8080/login?username=mani  (query param)
+
+
+task:
+Login (E2E journery)
+
+create a springboot project (Spring Web,DevTools, Lombok)
+Genrate and download
+import to intellij
+
+create controller package under main base package.
+
+create login controller class
+
+create controller for register
+
+create controller for forgotPassword
+
+username=mani&password=mani
+login-{username, password}(GET) --> Response {username:"mani"} 200
+
+Register-{firstname, lastname, mobile, address,email}(POST)
+-->response{
+firstname: "siva",
+lastname:"kumar"..
+
+message:"Registration successful"
+} status code:201
+
+
+ ?email=mani@gmail.com
+forgotPassword-{emailId}(GET)-200 response{reset password link sent to registered email id}
