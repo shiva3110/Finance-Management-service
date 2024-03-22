@@ -6,13 +6,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "user_Details_data")
+@Table(name = "user_data")
 public class RegisterUserDetailEntity {
 
     @Id()
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Long user_id;
+    private Integer user_id;
 
     @Column(name = "first_name")
     private String fname;
