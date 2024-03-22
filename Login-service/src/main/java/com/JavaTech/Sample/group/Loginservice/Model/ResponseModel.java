@@ -1,31 +1,22 @@
 package com.JavaTech.Sample.group.Loginservice.Model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class ResponseModel {
     private String result;
 
-    private String username;
+    private String message;
 
     public ResponseModel(){
 
     }
-    public ResponseModel(String result, String username) {
+    public ResponseModel(String result, String message) {
         this.result = result;
-        this.username = username;
+        this.message = message;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
 }
