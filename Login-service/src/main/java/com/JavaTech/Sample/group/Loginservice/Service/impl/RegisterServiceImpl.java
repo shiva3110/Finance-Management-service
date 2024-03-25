@@ -4,6 +4,7 @@ import com.JavaTech.Sample.group.Loginservice.Entities.RegisterUserDetailEntity;
 import com.JavaTech.Sample.group.Loginservice.Model.RegisterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Repository.RegisterRepository;
 import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
+import com.JavaTech.Sample.group.Loginservice.exception.UserNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +30,12 @@ public class RegisterServiceImpl implements RegisterService {
            return true;
 
         return false;
+    }
+
+    @Override
+    public boolean loginuser() throws Exception{
+        throw new UserNotFound("User id is not available in DB");
+
     }
 
 

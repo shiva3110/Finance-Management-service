@@ -6,4 +6,6 @@ public interface RegisterService{
 
     boolean createUserData(RegisterUserModel model);
 
+    boolean loginuser () throws Exception;
+
 }

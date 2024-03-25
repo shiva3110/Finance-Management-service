@@ -4,6 +4,8 @@ import com.JavaTech.Sample.group.Loginservice.Model.RegisterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Model.RequestModel;
 import com.JavaTech.Sample.group.Loginservice.Model.ResponseModel;
 import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
+import com.JavaTech.Sample.group.Loginservice.exception.UserNotFound;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -24,12 +26,14 @@ public class LoginController {
 
     @PostMapping(value = "/login",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     //  http://localhost:8080/login-service/login&username=mani&password=mani
-    public ResponseEntity<ResponseModel> loginLogic(@RequestBody RequestModel input){
+    public ResponseEntity<ResponseModel> loginLogic(@RequestBody @Valid RequestModel input) throws Exception {
 
         ResponseModel model = new ResponseModel();
+
         model.setResult("OK");
         model.setMessage(input.getUsername());//business-logic//service-layer
 
+        registerService.loginuser();
 
         return new ResponseEntity<>(model, HttpStatus.CREATED);
         //plain-text--expected->json {result:OK,
@@ -38,7 +42,7 @@ public class LoginController {
 
     @PostMapping(value = "/register", consumes = MediaType.APPLICATION_JSON_VALUE
     ,produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ResponseModel> registerLogic(@RequestBody RegisterUserModel userData){
+    public ResponseEntity<ResponseModel> registerLogic(@RequestBody @Valid RegisterUserModel userData){
 
      boolean accountCreated = registerService.createUserData(userData);
         ResponseModel response = new ResponseModel();
