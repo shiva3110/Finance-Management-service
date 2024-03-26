@@ -6,6 +6,6 @@ public interface RegisterService{
 
     boolean createUserData(RegisterUserModel model);
 
-    boolean loginuser () throws Exception;
+    boolean loginuser (String password) throws Exception;
 
 }

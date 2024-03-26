@@ -4,9 +4,10 @@ import com.JavaTech.Sample.group.Loginservice.Entities.RegisterUserDetailEntity;
 import com.JavaTech.Sample.group.Loginservice.Model.RegisterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Repository.RegisterRepository;
 import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
-import com.JavaTech.Sample.group.Loginservice.exception.UserNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {
@@ -33,10 +34,23 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public boolean loginuser() throws Exception{
-        throw new UserNotFound("User id is not available in DB");
+    public boolean loginuser(String password) throws Exception {
+        RegisterUserDetailEntity userdata= registerRepository.findByPasssword(password);
 
+        registerRepository.findByPasssword(password);
+
+
+
+
+
+       if(Objects.nonNull(userdata)) {
+           if (userdata.getPasssword().equals(password))
+               return true;
+       }
+
+        return false;
     }
+
 
 
 }

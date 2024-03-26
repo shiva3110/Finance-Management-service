@@ -189,3 +189,21 @@ Controller-->Autowire used --> Registerservice -->again using Autowire-->Registe
 Service-->overriding
 
 Repository-->extends JPARepository-->save()-->which will insert record to table
+
+
+user_id -->primary id findById--> primary
+
+user_password---->
+
+
+
+
+java user  -- mysql user
+
+findByuser()
+
+task for 26th march
+
+try @query with any fields in entity to fetch a user rescord
+    
+security-->

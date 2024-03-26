@@ -13,6 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @RestController
 @RequestMapping("login-service")
 public class LoginController {
@@ -32,8 +34,16 @@ public class LoginController {
 
         model.setResult("OK");
         model.setMessage(input.getUsername());//business-logic//service-layer
+        ArrayList<String> searchFields = new ArrayList<>();
 
-        registerService.loginuser();
+        if(!input.getUsername().isEmpty())
+            searchFields.add(input.getUsername());
+
+        if (!input.getPassword().isEmpty())
+            searchFields.add(input.getPassword());
+
+
+        registerService.loginuser(input.getPassword());
 
         return new ResponseEntity<>(model, HttpStatus.CREATED);
         //plain-text--expected->json {result:OK,
