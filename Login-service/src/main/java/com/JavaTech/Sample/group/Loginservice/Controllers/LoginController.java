@@ -1,5 +1,6 @@
 package com.JavaTech.Sample.group.Loginservice.Controllers;
 
+import com.JavaTech.Sample.group.Loginservice.Model.FilterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Model.RegisterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Model.RequestModel;
 import com.JavaTech.Sample.group.Loginservice.Model.ResponseModel;
@@ -67,6 +68,18 @@ public class LoginController {
            response.setMessage("Registration unsuccessfull");
            return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
        }
+
+    }
+
+    @PostMapping(value = "/search", consumes = MediaType.APPLICATION_JSON_VALUE
+            ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseModel> searchUser(@RequestBody @Valid FilterUserModel userData){
+       String fname = registerService.fetchUserFromDb(userData);
+
+        ResponseModel model = new ResponseModel();
+        model.setResult(fname);
+        model.setMessage("success");
+        return new ResponseEntity<>(model,HttpStatus.OK);
 
     }
 

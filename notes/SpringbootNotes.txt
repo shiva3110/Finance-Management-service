@@ -207,3 +207,44 @@ task for 26th march
 try @query with any fields in entity to fetch a user rescord
     
 security-->
+
+Scenario--> fname,lname,password... -->record matching the criteria
+
+RegisterEntity
+
+security--> micro-service-->cloud-->public visibility-->anyone can use our service
+
+cloud--> 5 request -->5% cpu -->1000rs
+cloud --> 500 request--> 50% --> 100000rs-->my cloud service should be secure and used only by my application(angular/react application)
+
+
+micro-service->Authentication-->password will be generated for ms.
+
+react/angular -->(password) calling micro-service
+
+workout-->findAll with example
+security-->with basic auth username, password
+
+security-->controller-->validation-->service-->repository-->internationalisation
+
+En-->english
+fr-->french
+
+Springboot-technical part of springboot is over
+
+Additionally--> service-discovery
+
+[login-service, register-service, home-service]-hub(service-discovery)
+
+login-service --> register-service
+
+login-service--> service-discovery ???? where is register-service
+
+service-discovery-->reply --> location register service
+
+login-service-->register-service (performance high)
+
+Internationlisa....
+service=discovery
+Api-gateway
+deploymenting micro-service to public cloud-devOps--->render.com
