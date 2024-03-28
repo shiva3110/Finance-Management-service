@@ -8,6 +8,8 @@ import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
 import com.JavaTech.Sample.group.Loginservice.exception.UserNotFound;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.support.MessageSourceResourceBundle;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
@@ -15,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("login-service")
@@ -22,6 +25,9 @@ public class LoginController {
 
     @Autowired //create and intiliaze object
     RegisterService registerService;
+
+    @Autowired
+    MessageSource messageSource;
 
 //    public LoginController(RegisterService registerService) {
 //        this.registerService = registerService;
@@ -81,6 +87,16 @@ public class LoginController {
         model.setMessage("success");
         return new ResponseEntity<>(model,HttpStatus.OK);
 
+    }
+
+    @GetMapping("/internationalisation")
+    public ResponseEntity<String> throwErrorLogin(
+            @RequestHeader(name = "Accept-Language",required = false)Locale locale){//ta
+
+        return new ResponseEntity<>(
+                messageSource.getMessage("user.wrong.credential",null,locale),HttpStatus.OK);
+
+        //give a key it will return a message
     }
 
 

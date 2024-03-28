@@ -244,7 +244,11 @@ service-discovery-->reply --> location register service
 
 login-service-->register-service (performance high)
 
-Internationlisa....
+security workout
+internationlisation --> work with any 3 languages
+Locale-->language,location gmt ist 
+
+Internationlisa, Loggers
 service=discovery
 Api-gateway
 deploymenting micro-service to public cloud-devOps--->render.com
