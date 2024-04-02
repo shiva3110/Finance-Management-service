@@ -7,6 +7,7 @@ import com.JavaTech.Sample.group.Loginservice.Model.ResponseModel;
 import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
 import com.JavaTech.Sample.group.Loginservice.exception.UserNotFound;
 import jakarta.validation.Valid;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceResourceBundle;
@@ -21,6 +22,7 @@ import java.util.Locale;
 
 @RestController
 @RequestMapping("login-service")
+@Log4j2 // log object
 public class LoginController {
 
     @Autowired //create and intiliaze object
@@ -37,19 +39,16 @@ public class LoginController {
     //  http://localhost:8080/login-service/login&username=mani&password=mani
     public ResponseEntity<ResponseModel> loginLogic(@RequestBody @Valid RequestModel input) throws Exception {
 
+        log.info("request reached login controller");
         ResponseModel model = new ResponseModel();
 
         model.setResult("OK");
         model.setMessage(input.getUsername());//business-logic//service-layer
         ArrayList<String> searchFields = new ArrayList<>();
 
-        if(!input.getUsername().isEmpty())
-            searchFields.add(input.getUsername());
+       // validation
 
-        if (!input.getPassword().isEmpty())
-            searchFields.add(input.getPassword());
-
-
+        log.info("request passes validation and starting to servic layer");
         registerService.loginuser(input.getPassword());
 
         return new ResponseEntity<>(model, HttpStatus.CREATED);

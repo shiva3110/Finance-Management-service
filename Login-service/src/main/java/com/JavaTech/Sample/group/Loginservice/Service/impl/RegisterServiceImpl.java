@@ -5,6 +5,7 @@ import com.JavaTech.Sample.group.Loginservice.Model.FilterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Model.RegisterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Repository.RegisterRepository;
 import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
+@Log4j2
 public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
@@ -40,19 +42,22 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public boolean loginuser(String password) throws Exception {
+        log.debug("user receiver password = " + password);
+
         RegisterUserDetailEntity userdata= registerRepository.findByPasssword(password);
 
         registerRepository.findByPasssword(password);
 
 
-
+log.warn("sample warning message");
 
 
        if(Objects.nonNull(userdata)) {
            if (userdata.getPasssword().equals(password))
+               log.info("service layer bussiness logic complete success");
                return true;
        }
-
+        log.info("service layer bussiness logic complete success");
         return false;
     }
 

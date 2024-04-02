@@ -252,3 +252,6 @@ Internationlisa, Loggers
 service=discovery
 Api-gateway
 deploymenting micro-service to public cloud-devOps--->render.com
+
+
+junit, loggers args passing.
