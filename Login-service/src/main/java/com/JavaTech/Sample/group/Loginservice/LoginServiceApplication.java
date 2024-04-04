@@ -8,11 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 import java.util.Locale;
 
 @SpringBootApplication
+@EnableWebMvc
 public class LoginServiceApplication {
 
 	public static void main(String[] args) {
@@ -20,22 +22,8 @@ public class LoginServiceApplication {
 		SpringApplication.run(LoginServiceApplication.class, args);
 	}
 
-	@Bean
-	public LocaleResolver localeResolver(){
 
-		SessionLocaleResolver locale = new SessionLocaleResolver();//session //request /login, /register
-
-		locale.setDefaultLocale(Locale.ENGLISH);
-
-		return locale;
-	}
-
-	@Bean
-	public ResourceBundleMessageSource resourceBundleMessageSource (){
-		ResourceBundleMessageSource message = new ResourceBundleMessageSource();
-		message.setBasename("messages");// meessages.prp, messgaes_ta.prop
-		return message;
-	}
+	
 
 }
 //mvc - c -controller /login

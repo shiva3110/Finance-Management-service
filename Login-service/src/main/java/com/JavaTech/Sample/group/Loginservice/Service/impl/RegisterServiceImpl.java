@@ -6,6 +6,7 @@ import com.JavaTech.Sample.group.Loginservice.Model.RegisterUserModel;
 import com.JavaTech.Sample.group.Loginservice.Repository.RegisterRepository;
 import com.JavaTech.Sample.group.Loginservice.Service.RegisterService;
 import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
@@ -16,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Service
-@Log4j2
+@Slf4j
 public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
@@ -41,7 +42,7 @@ public class RegisterServiceImpl implements RegisterService {
     }
 
     @Override
-    public boolean loginuser(String password) throws Exception {
+    public String loginuser(String password) throws Exception {
         log.debug("user receiver password = " + password);
 
         RegisterUserDetailEntity userdata= registerRepository.findByPasssword(password);
@@ -55,10 +56,10 @@ log.warn("sample warning message");
        if(Objects.nonNull(userdata)) {
            if (userdata.getPasssword().equals(password))
                log.info("service layer bussiness logic complete success");
-               return true;
+               return userdata.getFname();
        }
         log.info("service layer bussiness logic complete success");
-        return false;
+        return userdata.getFname();
     }
 
     @Override

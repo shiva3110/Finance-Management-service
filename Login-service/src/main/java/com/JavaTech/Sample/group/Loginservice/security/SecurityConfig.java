@@ -15,7 +15,7 @@ public class SecurityConfig {
 
        http.csrf().disable()// disabling csrf which mean any site can send request
                .authorizeRequests()//authorization (to check user and admin type)
-               .requestMatchers("/register").permitAll()
+               .requestMatchers("/actuator/**").permitAll()
                .anyRequest().authenticated()// checks username and password
                .and().httpBasic();// authentication way (basic Auth, OAuth, Oauth2)
        return http.build();

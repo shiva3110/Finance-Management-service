@@ -1,5 +1,7 @@
 package com.JavaTech.Sample.group.Loginservice.Model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class RequestModel {
    private String username;
     private String  password;
@@ -26,5 +28,10 @@ public class RequestModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String toJSONString() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(this);
     }
 }

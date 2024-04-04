@@ -7,7 +7,7 @@ public interface RegisterService{
 
     boolean createUserData(RegisterUserModel model);
 
-    boolean loginuser (String password) throws Exception;
+    String loginuser (String password) throws Exception;
 
     String fetchUserFromDb(FilterUserModel model);
 

@@ -37,9 +37,10 @@ public class LoginController {
 
     @PostMapping(value = "/login",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     //  http://localhost:8080/login-service/login&username=mani&password=mani
-    public ResponseEntity<ResponseModel> loginLogic(@RequestBody @Valid RequestModel input) throws Exception {
+    public ResponseEntity<String> loginLogic(@RequestBody @Valid RequestModel input) throws Exception {
 
         log.info("request reached login controller");
+        log.trace("demooo debug");
         ResponseModel model = new ResponseModel();
 
         model.setResult("OK");
@@ -49,9 +50,9 @@ public class LoginController {
        // validation
 
         log.info("request passes validation and starting to servic layer");
-        registerService.loginuser(input.getPassword());
+      String username =  registerService.loginuser(input.getPassword());//to mock
 
-        return new ResponseEntity<>(model, HttpStatus.CREATED);
+        return new ResponseEntity<>(username, HttpStatus.CREATED);
         //plain-text--expected->json {result:OK,
         // username :'mani'}
     }

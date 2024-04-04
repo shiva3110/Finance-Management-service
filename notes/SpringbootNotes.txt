@@ -254,4 +254,139 @@ Api-gateway
 deploymenting micro-service to public cloud-devOps--->render.com
 
 
-junit, loggers args passing.
+client--> mozile, g=chrome, firefox..... updates encoding-->utf-2005
+springboot-->encoding -- Tha --> ? ||
+
+
+Loggers --> console output
+
+INFO --> general information should be passes here --(non sensitive)
+DEBUG--> carries sensitive info
+ERROR --> error info
+TRACE --> stack trace
+WARN --> not error but still some minor issue
+
+importnt--> i am developing ms in inteliij/ eclipse --> logs-->checking console
+
+production env --> OS --> unix/linux --> cli --> command line interface
+
+every ection should be done vi commnds
+
+banking --> account number, card number, pin number
+
+print --> reached controller
+print -- reasched service layer
+print --> account number : 12345 has not cash limit ??? --> DEBUG
+cydcgc exception
+
+customer paid 350 to some one --> cash debittedd but not received to the another customer
+customer will raise an issue to bank.
+bank will create a issue for technical team.
+
+app prod env run: 
+
+by default it will log info level-> logigg........
+
+
+@SL4j2/ @Log4j2 -->Loggers intance no need --> log
+
+Logger log = LoggerFactory.getLogger(LoginController.class)
+
+
+Actuators:
+
+ms once built--> deploy in cloud --> eg: render,aws,azure --> it done. after 2 days ..you are trying to access the ms but its not reachable.
+
+login to cloud and check the application status(running or not)
+
+http://xyz/login-service/up-->Actuator
+
+{success: up} {success:down}
+
+Logger--> done
+
+Actuator--> health, info 
+
+swagger, unit test
+
+
+LoginCOntroller(we are getting 3 request param and one request body)
+
+
+customer --> username , password, emailid (requirement) -->Business Analyst (partially technical, business stratergy) --> development(actual development)
+
+
+developer--> code built --> postman--> url, get/post, header,aut, request, send
+
+code-->deplphment done.
+postman knowledg XXXXX
+
+postman fullfilled request--> send usern--> swaggers documentation
+
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-boot-starter</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+logger--> find how to restrict log level for particular package
+swagger--> just add dependency and check the swagger url
+
+http://localhost:8080/swagger-ui.html
+
+login-service --> 3rd Azure is trying to use login-service
+
+swagger -ui
+
+login- service     azure-service--> (login- service)get /login(response)(method 								not allowed)
+	
+post /login
+
+@RequestParam
+
+<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+@EnableWebMvc
+
+
+
+Junit --> Testing 
+
+LoginCOntroller-->Login()
+
+
+login(@RequestParm username, password){
+
+logicline1
+String username =loginService.verifyUser(username,passsword);//null-->repository
+
+logicline1 
+
+username.length();  //nullpointer //app crash //production
+xyqservice
+
+return responseEntity<>.....
+}
+
+loginController-->test-->100 sql quries oracle --10% cpu-->charges
+
+Mockito Framework--> to mock any object
+
+testcase --> logincontroller -->loginService --> mock(xyqservice)
+
