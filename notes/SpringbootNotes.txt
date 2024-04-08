@@ -223,16 +223,20 @@ micro-service->Authentication-->password will be generated for ms.
 react/angular -->(password) calling micro-service
 
 workout-->findAll with example
-security-->with basic auth username, password
+security-->with basic auth username, password, csrf()
 
 security-->controller-->validation-->service-->repository-->internationalisation
 
 En-->english
 fr-->french
 
+swaggers doc
+junit
+actuators
+
 Springboot-technical part of springboot is over
 
-Additionally--> service-discovery
+Additionally--> service-discovery-devOps 
 
 [login-service, register-service, home-service]-hub(service-discovery)
 
@@ -249,8 +253,8 @@ internationlisation --> work with any 3 languages
 Locale-->language,location gmt ist 
 
 Internationlisa, Loggers
-service=discovery
-Api-gateway
+service=discovery --> theory + plus practical
+Api-gateway-- theory
 deploymenting micro-service to public cloud-devOps--->render.com
 
 
@@ -389,4 +393,33 @@ loginController-->test-->100 sql quries oracle --10% cpu-->charges
 Mockito Framework--> to mock any object
 
 testcase --> logincontroller -->loginService --> mock(xyqservice)
+
+Junit --> unitcases --> testing a specific method (very small unit)
+
+Unit - testing
+
+SIT - system integrated testing
+
+B.E (springboot)  ------- FE(Angular)-->SIT 
+
+UAT-->User acceptance testing --> Functionality check by actaual user
+prod
+
+
+_________________________________________________________________
+
+
+Security at every level
+
+request--> post (requestBody) sensitve info--> angular --> form --> username& password
+
+--> angular encrypt --> (dhhsdgjsgjsh & d5667576sdfsfsdjbsj)
+
+request --> api gateway --> springboot service(decrpty algo: ) --> security(user name and password)
+
+serviceClass--> username checking
+
+repostiory--> XXXX645L
+
+
 

@@ -30,7 +30,15 @@ public class RequestModel {
         this.password = password;
     }
 
-    public String toJSONString() throws Exception {
+    @Override
+    public String toString() {
+        return "RequestModel{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
+    public String toJSONString() throws Exception {//object  --> json --> string
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(this);
     }

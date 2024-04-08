@@ -1,5 +1,6 @@
 package com.JavaTech.Sample.group.Loginservice.Model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor //parameterizes
 @NoArgsConstructor //default
+
 public class RegisterUserModel {
 
     @NotBlank
@@ -36,4 +38,8 @@ public class RegisterUserModel {
     private String address;//lombok
 
     //setter getter -->boilerPlate code
+    public String toJSONString() throws Exception {//object  --> json --> string
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(this);
+    }
 }
