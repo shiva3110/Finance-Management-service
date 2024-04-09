@@ -19,7 +19,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.Base64;
-
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -49,7 +49,8 @@ public class LoginControllerTest { // we specify exact class to get tested
                 .with(SecurityMockMvcRequestPostProcessors.csrf())// if security enable for springboot then csrf is mandetory
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(requestString))//setting content type //" {"usename":"mani"}"
-                .andExpect(MockMvcResultMatchers.status().isCreated());//if request sent is success then we expect Created status 201
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+        .andExpect(MockMvcResultMatchers.content().string("sample"));//if request sent is success then we expect Created status 201
 
         //401--> unAuthorized
         //403 --> bypass security but still server says you have access but i will not give
@@ -76,7 +77,12 @@ public class LoginControllerTest { // we specify exact class to get tested
                 .with(SecurityMockMvcRequestPostProcessors.csrf())// if security enable for springboot then csrf is mandetory
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(requestString))//setting content type //" {"usename":"mani"}"
-                .andExpect(MockMvcResultMatchers.status().isCreated());//if request sent is success then we expect Created status 201
+                .andExpect(MockMvcResultMatchers.status().isCreated());
+
+
+              //  .andExpect(MockMvcResultMatchers.content().)
+        //if request sent is success then we expect Created status 201
+        //check if response contains expected string
 
         //401--> unAuthorized
         //403 --> bypass security but still server says you have access but i will not give

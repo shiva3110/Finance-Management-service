@@ -421,5 +421,35 @@ serviceClass--> username checking
 
 repostiory--> XXXX645L
 
+----------------------------------------
+service-discovery/ service-registry
+
+creating a hub and registereing other micro-services in this hub(service-discovery)
+
+hub -->up -->8081--(Eureka server)
+
+login-service --> up -->8080 (Eureka client)
+
+Hub(Eureka server)
+Web, Eureka server
+
+@EnableEurekaServer--> @Springboot
+
+server.port=8761--> it is eurkea default port number
+
+eureka.instance.hostname=localhost --> host where server should be deployed
+eureka.client.register-with-eureka=false --> hub should not register itself in the hub
+eureka.client.fetch-registry=false --> hub should should not fetch its own details from hub
+
+hub ready--> empty
+
+
+login-service
+<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+
 
 
