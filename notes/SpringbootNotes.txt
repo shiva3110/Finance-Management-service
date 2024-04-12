@@ -452,4 +452,34 @@ login-service
 		</dependency>
 
 
+FROM eclipse-temurin:17-jdk-alpine
+VOLUME /tmp
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
+
+postgres://finman_user:ohefxbCK7I9Jtf7THw1LvpghUCf1brb3@dpg-cob0s0sf7o1s73fhr0kg-a.oregon-postgres.render.com/finman
+
+
+ms --> deploy
+
+db --> deploy 
+
+bridge build
+
+
+
+API GATEWAY-->micro-service
+
+
+security for microservice-->usernmr, passwrd
+suddenly there is a theat or vulnerability
+username & pass change
+
+variable purpose
+
+
+
+
+
 
